@@ -1,0 +1,141 @@
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+
+/* CSS for Image Zoom Effect */
+.bg-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-image img {
+    transition: transform 0.2s;
+}
+
+.bg-image:hover img {
+    transform: scale(1.1); /* Tăng kích thước ảnh lên 110% khi rê chuột vào */
+}
+
+
+.cascading-right {
+    margin-right: -50px;
+}
+
+@media (max-width: 991.98px) {
+    .cascading-right {
+        margin-right: 0;
+    }
+}
+
+
+.custom-form {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.inputGroupContainer {
+    margin: 10px 0;
+}
+
+.input-group-addon {
+    min-width: 40px;
+    text-align: center;
+}
+
+.form-control {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: none;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.radio {
+    margin-right: 20px;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.btn {
+    width: 150px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 3px;
+}
+
+/* .card {
+width: 400px;
+margin: 20px auto;
+border: 1px solid #ccc;
+border-radius: 20px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+background-color: #28A745;
+color: white;
+text-align: center;
+padding: 10px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+.card-header h5 {
+margin: 0;
+font-size: 24px;
+}
+
+.card-header img {
+max-width: 100%;
+height: auto;
+margin-top: 10px;
+}
+
+.card-body {
+padding: 20px;
+background-color:#45637d;
+}
+
+.card-text {
+margin: 10px 0;
+font-size: 18px;
+}
+
+.btn {
+text-align: center;
+display: block;
+margin: 10px auto;
+padding: 10px 20px;
+border-radius: 5px;
+font-weight: bold;
+text-decoration: none;
+color: white;
+}
+
+.btn-warning {
+background-color: #FFC107;
+}
+
+.btn-success {
+background-color: #28A745;
+} */

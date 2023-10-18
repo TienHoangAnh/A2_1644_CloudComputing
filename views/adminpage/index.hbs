@@ -1,0 +1,58 @@
+<div class="container col-md-8 text-center">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th colspan="8" class="h1 text-uppercase text-center">
+                Product List
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <a class="btn btn-primary" href="/adminpage/add">Add</a>
+            </th>
+            <th colspan="6">
+                <form action="/adminpage/search" method="post">
+                    <div class="form-group">
+                        <input class="form-control" type="search" placeholder="Search by product's name" name="name" id="" required>
+                    </div>
+                    <button type="search" class="btn btn-success">Search</button>
+                </form>
+            </th>
+            <th colspan="2">
+                <select class="form-control" name="sort" id="" onchange="window.location.href=this.value">
+                    <option value="#">Sort by</option>
+                    <option value="/adminpage/nameasc">Name asc</option>
+                    <option value="/adminpage/namedesc">Name desc</option>
+                </select>
+            </th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Price</th>
+            <th>Size</th>
+            <th>Status</th>
+            <th>Quantity</th>
+            <th>Image</th>
+            <th>Menu</th>
+        </tr>
+        {{#each adminpages }}
+        <tr>
+            <td>{{ name }}</td>
+            <td>{{ type }}</td>
+            <td>{{ price }}</td>
+            <td>{{ size }}</td>
+            <td>{{ status }}</td>
+            <td>{{ quantity }}</td>
+            <td>
+                <a href="adminpage/detail/{{ _id }}">
+                    <img src="{{image}}" alt="" width="75" height="100">
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-warning" href="adminpage/edit/{{_id}}">Edit</a>
+                <a class="btn btn-danger" href="adminpage/delete/{{_id}}" onclick="return confirm('Are you sure delete this adminpage?')">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</div>

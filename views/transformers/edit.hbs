@@ -1,0 +1,29 @@
+<form action="/edit-product" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="product_id" value="your_product_id"> <!-- Sử dụng hidden field để chứa ID sản phẩm -->
+  
+  <label for="name">Tên sản phẩm:</label>
+  <input type="text" name="name" id="name" value="Tên sản phẩm hiện tại"><br>
+
+  <label for="type">Loại sản phẩm:</label>
+  <input type="text" name="type" id="type" value="Loại sản phẩm hiện tại"><br>
+
+  <label for="price">Giá:</label>
+  <input type="number" name="price" id="price" value="Giá hiện tại"><br>
+
+  <label for="size">Kích thước:</label>
+  <input type="text" name="size" id="size" value="Kích thước hiện tại"><br>
+
+  <label for="quantity">Số lượng:</label>
+  <input type="number" name="quantity" id="quantity" value="Số lượng hiện tại"><br>
+
+  <label for="status">Tình trạng:</label>
+  <select name="status" id="status">
+    <option value="available">Có sẵn</option>
+    <option value="out-of-stock">Hết hàng</option>
+  </select><br>
+
+  <label for="image">Hình ảnh:</label>
+  <input type="file" name="image" id="image"><br>
+
+  <input type="submit" value="Lưu thay đổi">
+</form>
