@@ -38,22 +38,35 @@ router.post('/add', async (req, res) => {
     res.redirect('/adminpage')
 })
 
+// router.get('/edit/:id', async (req, res) => {
+//     var id = req.params.id;
+//     var adminpage = await adminpageModel.findById(id);
+//     res.render('adminpage/edit', {
+//         adminpage: adminpage
+//     })
+// })
+
 router.get('/edit/:id', async (req, res) => {
     var id = req.params.id;
     var adminpage = await adminpageModel.findById(id);
-    res.render('adminpage/edit', {
-        adminpage: adminpage
-    })
+    res.render('adminpage/edit', { adminpage: adminpage })
 })
 
-//hiển thị dữ liệu từ form (POST)
 router.post('/edit/:id', async (req, res) => {
     var id = req.params.id;
     var adminpage = req.body;
     await adminpageModel.findByIdAndUpdate(id, adminpage);
-    console.log('Update successed');
+    console.log('Update adminpage succeed !');
     res.redirect('/adminpage');
 })
+//hiển thị dữ liệu từ form (POST)
+// router.post('/edit/:id', async (req, res) => {
+//     var id = req.params.id;
+//     var adminpage = req.body;
+//     await adminpageModel.findByIdAndUpdate(id, adminpage);
+//     console.log('Update successed');
+//     res.redirect('/adminpage');
+// })
 
 router.post('/search', async (req, res) => {
     var keyword = req.body.name;

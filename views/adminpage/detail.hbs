@@ -1,14 +1,36 @@
-<div class="container col-md-10">
-   <div class="row">
-      <div class="col-md-5">
-         <img src="{{student.image}}" width="300" height="300" alt="this is student image">
-      </div>
-      <div class="col-md-7 card bg-warning">
-         <h1 class="text-center bg-success">Thông tin sinh viên</h1>
-         <h3>Họ tên: {{ student.name }}</h3>
-         <h3>Giới tính: {{ student.gender }} </h3>
-         <h3>Ngày sinh: {{ dateFormat student.dob "DD-MM-YYYY"}}</h3>
-         <h3>Điểm GPA: {{ student.gpa }}</h3>
-      </div>
-   </div>
-</div>
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+    <!-- Jumbotron -->
+    <div class="container py-4">
+        <div class="row g-0 align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            ">
+                    <div class="card-body p-5 shadow-5 text-center">
+                        <h2 class="fw-bold mb-5">Details Product</h2>
+                        <div class="card-header">
+                            <h5 class="card-title">{{ adminpage.name }}</h5>
+                            <img src="{{ adminpage.image }}" alt="" width="380">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Type: {{ adminpage.type }}</p>
+                            <p class="card-text">Price: ${{ adminpage.price }}</p>
+                            <p class="card-text">Size: {{ adminpage.size }}</p>
+                            <p class="card-text">Status: {{ adminpage.status }}</p>
+                            <p class="card-text">Quantity: {{ adminpage.quantity }}</p>
+                            <a href="/adminpage/cart" class="btn btn-warning">Add to cart</a>
+                            <a href="/adminpage/buynow" class="btn btn-success">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <img src="{{adminpage.image1}}" class="w-100 rounded-4 shadow-4" alt="" />
+            </div>
+        </div>
+    </div>
+    <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->

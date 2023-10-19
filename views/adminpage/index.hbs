@@ -7,12 +7,18 @@
         </tr>
         <tr>
             <th>
+                <select class="form-control" name="sort" id="" onchange="window.location.href=this.value">
+                    <option value="#">Table Management</option>
+                    <option value="/adminpage/nameasc">Products Management</option>
+                    <option value="/adminpage/namedesc">User Management</option>
+                </select>
                 <a class="btn btn-primary" href="/adminpage/add">Add</a>
             </th>
             <th colspan="6">
                 <form action="/adminpage/search" method="post">
                     <div class="form-group">
-                        <input class="form-control" type="search" placeholder="Search by product's name" name="name" id="" required>
+                        <input class="form-control" type="search" placeholder="Search by product's name" name="name"
+                            id="" required>
                     </div>
                     <button type="search" class="btn btn-success">Search</button>
                 </form>
@@ -49,8 +55,13 @@
                 </a>
             </td>
             <td>
-                <a class="btn btn-warning" href="adminpage/edit/{{_id}}">Edit</a>
-                <a class="btn btn-danger" href="adminpage/delete/{{_id}}" onclick="return confirm('Are you sure delete this adminpage?')">Delete</a>
+                <a class="btn btn-warning" href="adminpage/edit/{{_id}}">
+                    <i class="fas fa-edit"> Edit</i>
+                </a>
+                <a class="btn btn-danger" href="adminpage/delete/{{_id}}"
+                    onclick="return confirm('Are you sure delete this adminpage?">
+                    <i class="fas fa-trash"> Delete</i>
+                </a>
             </td>
         </tr>
         {{/each}}

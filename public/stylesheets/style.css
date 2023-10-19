@@ -1,3 +1,15 @@
+#navbar{
+    background-color: #45637d;
+}
+#footer{
+    background-color: #45637d;
+}
+#footer_name{
+    text-align: center;
+    text-decoration: none;
+    color:burlywood;
+}
+
 .divider:after,
 .divider:before {
 content: "";
@@ -31,6 +43,11 @@ background: #eee;
     }
 }
 
+table, th, td {
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #45637d;
+}
 
 .custom-form {
     width: 80%;
@@ -80,7 +97,7 @@ background: #eee;
     width: 150px;
     padding: 10px;
     font-size: 18px;
-    border-radius: 3px;
+    border-radius: 15px;
 }
 
 /* .card {
