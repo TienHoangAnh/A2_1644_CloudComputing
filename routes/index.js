@@ -1,24 +1,45 @@
 var express = require('express');
 const userModel = require('../models/userModel');
 const ironmanModel = require('../models/ironmanModel');
+const transformersModel = require('../models/transformersModel');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index');
-  // res.redirect('/student')
-});
+// router.get('/', function (req, res, next) {
+//   res.render('index');
+//   // res.redirect('/student')
+// });
 
 router.get('/', async (req, res, next) => {
   var ironman = await ironmanModel.find();
-  // res.render(ironman); 
-  res.render('../index', {ironman : ironman})
+  var transformers = await transformersModel.find();
+  res.render('index', {ironman : ironman, transformers : transformers})
 });
 
+// router.get('/adminpage', async (req, res, next) => {
+//   var ironman = await ironmanModel.find();
+//   var transformers = await transformersModel.find();
+//   res.render('user/login', {ironman : ironman, transformers : transformers})
+// });
+
+
+//phân quyền cho người dùng
+router.get('/adminpage', function (req, res, next) {
+  res.send("<script>alert('Vui lòng đăng nhập để trải nghiệm');history.back();</script>");
+  res.render('user/login');
+});
+
+router.get('/transformers/cart', function (req, res, next) {
+  // console.log('Vui lòng đăng nhập để thực hiện thêm sản phẩm vào giỏ hàng');
+  res.send("<script>alert('Vui lòng đăng nhập để thực hiện thêm sản phẩm vào giỏ hàng');history.back();</script>");
+});
+
+router.get('/ironman/cart', function (req, res, next) {
+  res.send("<script>alert('Vui lòng đăng nhập để thực hiện thêm sản phẩm vào giỏ hàng');history.back();</script>");
+});
 
 router.get('/login', function (req, res, next) {
   res.render('user/login');
-  // res.redirect('/student')
 });
 
 router.get('/signup', function (req, res, next) {

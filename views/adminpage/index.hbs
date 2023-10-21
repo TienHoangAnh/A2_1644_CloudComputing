@@ -41,7 +41,31 @@
             <th>Image</th>
             <th>Menu</th>
         </tr>
-        {{#each adminpages }}
+        {{#each ironman }}
+        <tr>
+            <td>{{ name }}</td>
+            <td>{{ type }}</td>
+            <td>{{ price }}</td>
+            <td>{{ size }}</td>
+            <td>{{ status }}</td>
+            <td>{{ quantity }}</td>
+            <td>
+                <a href="adminpage/detail/{{ _id }}">
+                    <img src="{{image}}" alt="" width="75" height="100">
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-warning" href="adminpage/edit/{{_id}}">
+                    <i class="fas fa-edit"> Edit</i>
+                </a>
+                <a class="btn btn-danger" href="adminpage/delete/{{_id}}"
+                    onclick="return confirm('Are you sure delete this adminpage?">
+                    <i class="fas fa-trash"> Delete</i>
+                </a>
+            </td>
+        </tr>
+        {{/each}}
+        {{#each transformers }}
         <tr>
             <td>{{ name }}</td>
             <td>{{ type }}</td>

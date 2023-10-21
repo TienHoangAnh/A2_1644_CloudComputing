@@ -1,4 +1,4 @@
-<form action="/adminpage/edit/{{transformers._id}}" method="post" class="custom-form">
+<form action="/adminpage/edit/{{ironman._id}}" method="post" class="custom-form">
     <h1 class="form-title">Edit Admin</h1>
     <div class="container">
         <fieldset>
@@ -8,7 +8,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fas fa-user"></i></span>
                         <input name="name" placeholder="Name" class="form-control" type="text"
-                            value="{{ transformers.name }}">
+                            value="{{ ironman.name }}">
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fas fa-th"></i></span>
                         <input name="type" placeholder="Type" class="form-control" type="text"
-                            value="{{ transformers.type }}">
+                            value="{{ ironman.type }}">
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fas fa-dollar-sign"></i></span>
                         <input name="price" placeholder="Price" class="form-control" type="text"
-                            value="{{ transformers.price }}">
+                            value="{{ ironman.price }}">
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fas fa-ruler"></i></span>
                         <input name="size" placeholder="Size" class="form-control" type="text"
-                            value="{{ transformers.size }}">
+                            value="{{ ironman.size }}">
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fas fa-info-circle"></i></span>
                         <input name="status" placeholder="Status" class="form-control" type="text"
-                            value="{{ transformers.status }}">
+                            value="{{ ironman.status }}">
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fas fa-cubes"></i></span>
                         <input name="quantity" placeholder="Quantity" class="form-control" type="text"
-                            value="{{ transformers.quantity }}">
+                            value="{{ ironman.quantity }}">
                     </div>
                 </div>
             </div>
@@ -74,20 +74,20 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fas fa-image"></i></span>
                         <input type="url" name="image" placeholder="Image URL" class="form-control"
-                            value="{{ transformers.image }}">
+                            value="{{ ironman.image }}">
                     </div>
                     <div class="text-center">
-                        <img src="{{ transformers.image }}" alt="" width="300" height="350" class="mx-auto">
+                        <img src="{{ ironman.image }}" alt="" width="300" height="350" class="mx-auto">
                     </div>
                 </div>
                 <div class="inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fas fa-image"></i></span>
                         <input type="url" name="image1" placeholder="Image URL" class="form-control"
-                            value="{{ transformers.image1 }}">
+                            value="{{ ironman.image1 }}">
                     </div>
                     <div class="text-center">
-                        <img src="{{ transformers.image1 }}" alt="" width="300" height="350" class="mx-auto">
+                        <img src="{{ ironman.image1 }}" alt="" width="300" height="350" class="mx-auto">
                     </div>
                 </div>
             </div>

@@ -10,7 +10,6 @@ var ironmanRouter = require('./routes/ironman');
 var transformersRouter = require('./routes/transformers');
 var adminpageRouter = require('./routes/adminpage');
 
-
 var app = express();
 
 var hbs = require('hbs');
