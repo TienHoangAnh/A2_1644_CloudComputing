@@ -19,8 +19,15 @@
                             <p class="card-text">Price: ${{ transformers.price }}</p>
                             <p class="card-text">Size: {{ transformers.size }}</p>
                             <p class="card-text">Status: {{ transformers.status }}</p>
-                            <p class="card-text">Quantity: {{ transformers.quantity }}</p>  
-                            <a href="/transformers/cart" class="btn btn-warning">Add to cart</a>
+                            <p class="card-text">Quantity: {{ transformers.quantity }}</p>
+
+                            <form action="/transformers/cart" method="post">
+                                <input class="form-control" type="number" name="quantity" min="1"
+                                    max="{{ transformers.quantity }}">
+                                <input type="hidden" name="id" value="{{transformers._id}}">
+                                <input class="btn btn-danger" type="submit" value="Add to cart">
+                            </form>
+                            {{!-- <a href="/transformers/cart" class="btn btn-warning">Add to cart</a> --}}
                             <a href="/transformers/buynow" class="btn btn-success">Buy now</a>
                         </div>
                     </div>

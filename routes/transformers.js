@@ -6,18 +6,18 @@ var router = express.Router();
 router.get('/', async (req, res, next) => {
     var transformers = await transformersModel.find();
     // res.render(transformers); 
-    res.render('transformers/index', {transformers : transformers})
+    res.render('transformers/index', { transformers: transformers })
 });
 
-router.get('/detail/:id', async(req, res) => {
+router.get('/detail/:id', async (req, res) => {
     var id = req.params.id;
     var transformers = await transformersModel.findById(id);
     res.render('transformers/detail', {
-        transformers : transformers
+        transformers: transformers
     })
 })
 
-router.get('/delete/:id', async(req, res) => {
+router.get('/delete/:id', async (req, res) => {
     var id = req.params.id;
     await transformersModel.findByIdAndDelete(id);
     console.log('Delete transformers successed!');
@@ -25,34 +25,49 @@ router.get('/delete/:id', async(req, res) => {
 })
 
 //hiển thị form (GET)
-router.get('/add', (req, res) =>{
+router.get('/add', (req, res) => {
     //render ra file: views/employee/add.hbs
     res.render('transformers/add')
 })
 
 //hiển thị dữ liệu từ form (POST)
-router.post('/add', async(req, res) => {
+router.post('/add', async (req, res) => {
     var transformers = req.body;
     await transformersModel.create(transformers);
     console.log('Add transformers successed');
     res.redirect('/transformers')
 })
 
-router.get('/edit/:id', async(req, res) => {
+router.get('/edit/:id', async (req, res) => {
     var id = req.params.id;
     var transformers = await transformersModel.findById(id);
     res.render('transformers/edit', {
-        transformers : transformers
+        transformers: transformers
     })
 })
 
 //hiển thị dữ liệu từ form (POST)
-router.post('/edit/:id', async(req, res) => {
+router.post('/edit/:id', async (req, res) => {
     var id = req.params.id;
     var transformers = req.body;
     await transformersModel.findByIdAndUpdate(id, transformers);
     console.log('Update successed');
     res.redirect('/transformers');
+})
+
+router.post('/cart', async (req, res) => {
+    var id = req.body.id;
+    var quantity = req.body.quantity;
+    // console.log('transformers id: ' + id);
+    // console.log('Order quantity :' + quantity);
+    var transformers = await transformersModel.findById(id);
+    res.render('transformers/cart', { transformers: transformers, quantity: quantity })
+})
+
+router.post('/search', async (req, res) => {
+    var keyword = req.body.name;
+    var transformers = await transformersModel.find({ name: new RegExp(keyword, "i") });
+    res.render('transformers/index', { transformers: transformers });
 })
 
 module.exports = router;

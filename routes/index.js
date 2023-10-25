@@ -16,6 +16,15 @@ router.get('/', async (req, res, next) => {
   res.render('index', {ironman : ironman, transformers : transformers})
 });
 
+router.post('/search', async (req, res) => {
+  var keyword = req.body.name;
+  //relative search
+  // var adminpages = await adminpageModel.find({ name: new RegExp(keyword, "i") });
+  var ironman = await ironmanModel.find({ name: new RegExp(keyword, "i") });
+  var transformers = await transformersModel.find({ name: new RegExp(keyword, "i") });
+  res.render('index', { ironman: ironman, transformers: transformers });
+})
+
 // router.get('/adminpage', async (req, res, next) => {
 //   var ironman = await ironmanModel.find();
 //   var transformers = await transformersModel.find();
@@ -24,10 +33,10 @@ router.get('/', async (req, res, next) => {
 
 
 //phân quyền cho người dùng
-router.get('/adminpage', function (req, res, next) {
-  res.send("<script>alert('Vui lòng đăng nhập để trải nghiệm');history.back();</script>");
-  res.render('user/login');
-});
+// router.get('/adminpage', function (req, res, next) {
+//   res.send("<script>alert('Vui lòng đăng nhập để trải nghiệm');history.back();</script>");
+//   res.redirect('user/login');
+// });
 
 router.get('/transformers/cart', function (req, res, next) {
   // console.log('Vui lòng đăng nhập để thực hiện thêm sản phẩm vào giỏ hàng');

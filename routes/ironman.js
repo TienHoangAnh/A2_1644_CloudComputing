@@ -6,18 +6,18 @@ var router = express.Router();
 router.get('/', async (req, res, next) => {
     var ironman = await ironmanModel.find();
     // res.render(ironman); 
-    res.render('ironman/index', {ironman : ironman})
+    res.render('ironman/index', { ironman: ironman })
 });
 
-router.get('/detail/:id', async(req, res) => {
+router.get('/detail/:id', async (req, res) => {
     var id = req.params.id;
     var ironman = await ironmanModel.findById(id);
     res.render('ironman/detail', {
-        ironman : ironman
+        ironman: ironman
     })
 })
 
-router.get('/delete/:id', async(req, res) => {
+router.get('/delete/:id', async (req, res) => {
     var id = req.params.id;
     await ironmanModel.findByIdAndDelete(id);
     console.log('Delete ironman successed!');
@@ -25,35 +25,50 @@ router.get('/delete/:id', async(req, res) => {
 })
 
 //hiển thị form (GET)
-router.get('/add', (req, res) =>{
+router.get('/add', (req, res) => {
     //render ra file: views/employee/add.hbs
     res.render('ironman/add')
 })
 
 //hiển thị dữ liệu từ form (POST)
-router.post('/add', async(req, res) => {
+router.post('/add', async (req, res) => {
     var ironman = req.body;
     await ironmanModel.create(ironman);
     console.log('Add ironman successed');
     res.redirect('/ironman')
 })
 
-router.get('/edit/:id', async(req, res) => {
+router.get('/edit/:id', async (req, res) => {
     var id = req.params.id;
     var ironman = await ironmanModel.findById(id);
     res.render('ironman/edit', {
-        ironman : ironman
+        ironman: ironman
     })
 })
 
 //hiển thị dữ liệu từ form (POST)
-router.post('/edit/:id', async(req, res) => {
+router.post('/edit/:id', async (req, res) => {
     var id = req.params.id;
     var ironman = req.body;
     await ironmanModel.findByIdAndUpdate(id, ironman);
     console.log('Update successed');
     res.redirect('/ironman');
 
+})
+
+router.post('/cart', async (req, res) => {
+    var id = req.body.id;
+    var quantity = req.body.quantity;
+    // console.log('ironman id: ' + id);
+    // console.log('Order quantity :' + quantity);
+    var ironman = await ironmanModel.findById(id);
+    res.render('ironman/cart', { ironman: ironman, quantity: quantity })
+})
+
+router.post('/search', async (req, res) => {
+    var keyword = req.body.name;
+    var ironman = await ironmanModel.find({ name: new RegExp(keyword, "i") });
+    res.render('ironman/index', { ironman: ironman});
 })
 
 module.exports = router;
