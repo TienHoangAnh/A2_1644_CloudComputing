@@ -23,7 +23,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 var mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
-var uri = 'mongodb+srv://ti3n120903:bNpjoTdXcoRswrCc@cluster0.ma3tufb.mongodb.net/as2';
+var uri = 'mongodb+srv://ti3n120903:0zgW1nza35Bd9vsw@etutoringdb.kw8ho.mongodb.net/a2';
+
 //cần khai báo tên của DB ở trong uri connection string(ex: demo)
 // mongoose.connect('mongodb+srv://ti3n120903:bNpjoTdXcoRswrCc@cluster0.ma3tufb.mongodb.net/')
 mongoose.connect(uri)
